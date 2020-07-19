@@ -1,0 +1,453 @@
+﻿Testing concepts
+
+-Test Plan
+-Test Strategy
+-Waterfall Method 
+-Agile method
+-Diff between Agile and water fall
+-Sanity Testting
+-Smoke Testing
+-High Priority and low severity
+-Test Entry Criteria
+-Test Exit Creteria
+-Testing Techniques
+-RTM
+-BRD
+-FSD
+-burndown chart
+-top down approach
+-bottom up approach
+
+
+
+
+- Create a package as com.pages and com.basepage under source main java
+- under com.basepage create a class for base pages
+- under com.pages create a class for each pages
+- create a package as com.testpage under source main test
+- under com.testpage create a class for testpage
+- Ensure that all pages extends to basepage
+- Each page should have constructor with PageFactory.initElements(driver, this);
+- Test page should have constructor with super keyword - super();
+- create a iinitialization method in base page
+	System.setProperty("webdriver.chrome.driver", "C:\\Users\\Vijay\\Downloads\\chromedriver_win32_r1\\chromedriver.exe");		
+	driver = new ChromeDriver();
+	driver.manage().window().maximize();
+	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	driver.navigate().to("https://parabank.parasoft.com/parabank/index.htm");
+- Make sure that driver is created in global level in base page
+	public static ChromeDriver driver;
+- Go to pages class and start storing webelement in variables
+	@FindBy(name = "username")
+	WebElement userid;
+- Crete a action/method using variables in same page
+- under test page load the pages in global level
+	Loginpage lp;
+- Under before test initialize the different pages and browser too
+	@BeforeTest
+	public void bf() {
+	initialization(); 
+	lp=new Loginpage();	
+- Start create test with @test annotation
+	@Test
+	public void test1() {
+	lp.login_to_parabank();
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
+Interview Questions
+
+
+BRD
+
+- one or more requirements
+- Biz requirement will be provided by the client or the biz team
+- whis is the cost benifit biz is going to get
+- different solution and which one is going to implemented
+
+FSD
+
+- how the biz requirement is going to be achived
+- it will outline teh functionality and features which are going to supported
+- basically logical term will be provided in the FSD
+
+Waterfall model
+- Requirement->Design->Implement->verification->Maintanace
+- follow sequential design process
+- once the one activity is completed, then next activity will be started
+- used for smaller projects
+- requirement will be clear at the requirement phase itself
+- more documents
+
+
+Agile
+- development and testing will happen parallelly
+- its incremental and iterative testing process
+- project will be splited in to multiple sprints
+- customer has early adn frequent oppertunity to look at the product and made changes
+- less documents 
+
+Test Startegy
+- its highlevel documents
+- its for the whole project
+- templates and design will be useed for the project
+- testing approach for the whole prohect
+- take example of DB method in DB
+
+Test Plan
+- its for project specific
+- what is scope of the projecct
+- in scope
+- out scope
+- resources
+- environmet
+- timelines
+- entry creteria
+- exit creteria
+
+E2E flow pain
+
+E2E flow for swift
+
+what is Swift
+- Society for world wide interbank financial telecommunication
+- it is used to transfer money from one countyr bank to another country bank
+- financial message will be securely transmitted between the banks
+- it used swift code to identify teh banks
+
+Nostro
+ - Our account in ur bank
+ 
+Vostro
+ - Your account in our bank
+ 
+Corrospondent bank
+
+INNER) JOIN: Returns records that have matching values in both tables
+LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table
+RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table
+FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table
+
+
+
+
+MT101
+Tag 20 – Sender Reference:
+Tag 21 – Customer Specified Reference
+Tag 28D – Message Index / Total
+Tag 50F or 50G or 50H – Ordering Customer
+Tag 52A or 52C – Account Servicing Institution
+Tag 51A – Sending Institution
+Tag 30 – Requested Execution Date
+Tag 21 – Transaction Reference
+Tag 32B – Currency / Transaction Amount
+Tag 59 or 59A – Beneficiary
+Tag 70 – Remittance Information
+Tag 77B – Regulatory Reporting
+Tag 71A – Details of Charges
+Tag 25A – Charges Account
+Tag 36 – Exchange Rate
+
+Difference between mt101 and mt103
+-mt101 designed for corportate clients 
+- will have 1 header batch with multiple payment instruction
+-mt103 will be used between banks
+- its a single credit transfer payment
+
+SEPA payments
+- 36 members in sepa
+- improve teh efficiency of cross border payments
+
+
+top down approach
+- it is used in integaration testing
+- higher level of componenets will be tested first, then lower level of components will be tested
+
+bottom up approach
+- it is used in integaration testing
+- lower level of componenets will be tested first, then higher level of components will be tested
+
+burn down chart
+- graphical representation between work left and timelines
+- how much work left and how much time will have to complete
+- it will help us to identify the whether the work can be completed with in a time
+
+regressionn and retesting
+
+high priority with low severity
+- priority- how importance for the current release
+- severity - how much it is affecting the other functionality of the application
+ex: spelling mistake in a particular field
+
+Test case
+- derived from high level scenario
+- each test case will have unique condition
+- if condition pass, test case is pass, if failed then test case is failed
+- to achive the condition,, we have follow some steps
+- it have some prequsites
+
+boundary value analysis
+- its a black box testing technique
+
+equvalence partioning
+
+black box
+whitebox technique
+
+integaration testing
+unit testing
+smoke testing
+sanity testing
+adhoc testing
+use case testing
+
+Primary Key
+ - Primary key uniquely identify a record in the table
+ - U will not find duplicate
+
+
+Foriegn Key
+ - Foreign key is a field in the table that is primary key in another table
+ - Foreign key can accept multiple null value
+
+
+Encapsulation
+- to access the private variables
+- with the help of getters and setters we can access the private variables
+- protect the code from others
+
+Polymorphism
+-overloading
+	- create a method name 
+-overriding
+	-@ runtime we will decide which class needs to be loaded
+	public class Manipulation{ //Super class
+public void add(){
+………………
+}
+}
+
+Public class Addition extends Manipulation(){
+Public void add(){
+………..
+}
+Public static void main(String args[]){
+Manipulation addition = new Addition(); //Polimorphism is applied
+addition.add(); // It calls the Sub class add() method
+}
+}
+inherittance
+- one class will be extended to another class
+- what ever variables and methods available in parant class which will also available in chile class
+- child class might have addtion methods and variables
+
+
+Construtor
+- created with class name
+- whenever we create a object, constructor will be run
+- we can overload arguments in constructor
+- used to initialize member variables
+
+blocks
+- block will be run before the constructor
+- it will be executed first
+- run only once per teh program
+- used to initialize static variables
+
+find element vs find elements
+List<WebElement> elementName = driver.findElements(By.LocatorStrategy("LocatorValue"));
+
+
+1. ArrayList
+2. LinkedList
+3. Vector
+4. HashSet
+5. LinkedHashSet
+6. TreeSet
+7. HashMap
+8. TreeMap
+9. LinkedHashMap
+10. Hashtable
+11. Iterator and ListIterator
+12. Comparable and Comparator
+13. Java Collections Interview Questions
+
+List
+A List is an ordered Collection 
+(sometimes called a sequence). 
+Lists may contain duplicate elements. Elements can be inserted or accessed by their position in the list, using a zero-based index.
+
+Set
+A Set is a Collection that cannot contain duplicate elements. There are three main implementations of Set interface: HashSet, TreeSet, and LinkedHashSet. HashSet
+
+Map
+A Map is an object that maps keys to values. A map cannot contain duplicate keys. There are three main implementations of Map interfaces: HashMap, TreeMap, and LinkedHashMap.
+
+
+https://www.youtube.com/watch?v=rxlhK8AeD0Q
+
+
+
+
+
+
+
+
+
+----GIT----
+
+To get GIT Version
+$ git --version
+git version 2.26.2.windows.1
+
+To config Username
+Vijay@Vijay-PC MINGW64 ~
+$ git config --global user.name vijaysoundar
+
+
+To config user email
+Vijay@Vijay-PC MINGW64 ~
+$ git config --global user.email vijay.soundar@gmail.com
+
+To get Username
+Vijay@Vijay-PC MINGW64 ~
+$ git config user.name
+vijaysoundar
+
+To get useremail
+Vijay@Vijay-PC MINGW64 ~
+$ git config user.email
+vijay.soundar@gmail.com
+
+To initiate GIT folder
+navigate to the folder and right click->git bash here and run git init
+
+To staging a modified file
+git add .
+git add <filename>
+
+to commit the staged file
+git commit -m "any message"
+
+To Check the status
+git status
+
+To Check the log
+git log
+git log --oneline
+(it will provide details in single line without author and modified date details)
+
+To change or revert back to particular version
+Checkout (in order to check the previous code -  no risk)
+Revert (Revert will navigate the particular version and new version will be added)
+Reset (Reset will delete previous changes and its a risk)
+
+To Create the branch
+git branch <branch name>
+
+To create the branc and navigate
+git checkout -b <branchname>
+
+To checkout the branch
+git checkout <branchname>
+
+To check the list of branches
+git branch -a
+
+
+To merge a code from local branch to master
+- check out to master branch
+- git merge <local branch name>
+
+
+To Push the code to git hub
+git push <github url> <branchname>
+add and commit also
+or create alias as orgin and push as below
+git remote add origin <githuburl>
+git push origin master
+
+
+
+
+Appium Installation
+
+- download and Install node js (download node js and select windows)
+- to check node js availability node --version and npm --version
+- once it is installed, install node js with appium (cmd-> npm install -g appium)
+- once it is insatlled, check whether it is installed (cmd-> appium --version)
+- run appium (cmd -> appium)
+- to stop appium (cntl+c)
+
+- to install appium desktop client (download appium client through appium.io for windows)
+- install appium doctor (cmd->npm install appium-doctor -g)
+- to check version (appium-doctor)
+- to check options(appium-doctor -h)
+
+- to uninstall npm uninstall -g appium
+
+navigate to android.studio and scroll down to Command line tools only and download sdk packages 
+- download the packages from https://androidsdkmanager.azurewebsites.net/SDKTools so ERROR will be avoided
+- un zip and navigate to bin folder and run the cmd from bin folder
+D:\Appium SDK\commandlinetools-win-6200805_latest\tools\bin>sdkmanager "platform-tools" "platforms;android-29"
+- Android 29 is the api version- check it in wiki for "android version" you will find the api ref deails
+- while running the cmd from bin folder if u face this follwing error
+Error: Could not find or load main class SDK\commandlinetools-win-6200805_latest
+\tools\bin\\..
+Caused by: java.lang.ClassNotFoundException: SDK\commandlinetools-win-6200805_la
+test\tools\bin\\//
+
+downgrade java to 8
+C:\Program Files (x86)\Common Files\Oracle\Java\javapath;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk-11.0.1\bin;C:\Users\Vijay\Downloads\apache-maven-3.6.1-bin\apache-maven-3.6.1\bin;C:\Users\Vijay\Python27;C:\Users\Vijay\Python27\Scripts;C:\Program Files\Git\cmd;C:\Program Files\nodejs\
+C:\Program Files (x86)\Common Files\Oracle\Java\javapath;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_251\bin;C:\Users\Vijay\Downloads\apache-maven-3.6.1-bin\apache-maven-3.6.1\bin;C:\Users\Vijay\Python27;C:\Users\Vijay\Python27\Scripts;C:\Program Files\Git\cmd;C:\Program Files\nodejs\
+
+- set environment path for sdk files
+create ANDROID_HOME  and set sdk folder path
+under path -  set path as platform-tools folder
+
+- cmd-> type adb devices -- u should get msg list of devices w/o any error
+- if there is an error https://drive.google.com/file/d/1kpA3pkmkSdNzf_wwJd5EFgCKA3iWSizy/view and download adb file and replace it with sdk folder in platform tools folder
+
+
+
+
+C:\Program Files (x86)\Common Files\Oracle\Java\javapath;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_251\bin;C:\Users\Vijay\Downloads\apache-maven-3.6.1-bin\apache-maven-3.6.1\bin;C:\Users\Vijay\Python27;C:\Users\Vijay\Python27\Scripts;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;D:\Appium SDK\sdk-tools-windows-4333796\platform-tools
+
+
+- if getting error as any exe not found, try to identify the exe file in build tools folder (u should get build tools folder, if not run the cmd ?? (need to chk in google like line no 367)
+
+
+
+Attaching android without cable
+adb devices
+run cmd adb tcpip 5555
+in case of error run cmd adb kill-server
+then run again adb tcpip 5555
+run cmd adb connect 192.168.43.167
+if error cmd adb kill-server
+adb connect 192.168.43.167:5555
+
+
+appium --allow-insecure chromedriver_autodownload
+
+C:\Program Files (x86)\Common Files\Oracle\Java\javapath;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk-11.0.1\bin;C:\Users\Vijay\Downloads\apache-maven-3.6.1-bin\apache-maven-3.6.1\bin;C:\Users\Vijay\Python27;C:\Users\Vijay\Python27\Scripts;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;D:\Appium SDK\sdk-tools-windows-4333796\platform-tools;D:\Appium SDK\sdk-tools-windows-4333796\tools\bin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
